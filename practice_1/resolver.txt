@@ -1,0 +1,4 @@
+127.0.0.1 localhost
+198.199.124.124 ume.info
+188.93.212.23 shishmakov.com
+128.0.0.9 ya.ru
