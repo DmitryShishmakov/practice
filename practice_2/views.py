@@ -37,3 +37,22 @@
 # 		return render(request, 'listing.html', context)
 
 
+# Задание: Табличное представление данных
+# -*- coding: utf8 -*-
+from os import listdir, stat
+from time import localtime
+from django.shortcuts import render
+
+def listing(request, param):
+		listMeta = []
+		path = "/var/log/" + param
+		items = listdir(path)
+
+		for item in items:
+			meta = stat(path + "/" + item)
+			time = localtime(meta.st_mtime)
+			time = str(time[2]) + '.' + str(time[1]) + '.' + str(time[0]) + ' в ' + str(time[3]) + ':' + str(time[4]) + ':' + str(time[5])
+			listMeta.append({'name' : item, 'size' : meta.st_size, 'last' : time})
+
+		context = {'listMeta': listMeta}
+		return render(request, 'listing.html', context)
