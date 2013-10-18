@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Ссылки на подкаталоги</title>
+		<style>
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				border: 0;
+			}
+
+			table th, table td {
+				padding: 3px 0;
+				border: 1px solid #cfcfcf;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>Имя</th>
+				<th>Размер в байтах</th>
+				<th>Дата последнего изменения</th>
+			</tr>
+    	{% for item in listMeta %}
+        <tr>
+        	<td>{{ item.name }}</td>
+        	<td>{{ item.size }}</td>
+        	<td>{{ item.last }}</td>
+        </tr>
+    	{% endfor %}
+		</ul>
+
+	</body>
+</html>
