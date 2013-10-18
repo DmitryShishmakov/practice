@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Ссылки на подкаталоги</title>
+	</head>
+	<body>
+		<ul>
+			{% for item in listDirs %}
+        <li>
+        	<a href="./{{ item }}/">{{ item }}</a>
+        </li>
+    	{% endfor %}
+
+    	{% for item in listFiles %}
+        <li>{{ item }}</li>
+    	{% endfor %}
+		</ul>
+
+	</body>
+</html>
