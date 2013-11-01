@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Библиотека</title>
+		<style type="text/css">
+			h1 {
+				padding: 20px;
+				text-align: center;
+			}
+
+			table {
+				width: 100%;
+				border-collapse: collapse;
+			}
+
+			table, th, table td {
+				padding: 5px 0;
+				border: 1px solid #cccccc;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Список книг</h1>
+		<table>
+			<tr>
+				<th>Название</th>
+				<th>Автор</th>
+				<th>Издательство</th>
+			</tr>
+			{% for item in books %}
+				<tr>
+					<td>
+						<a href="/library/books/{{ item.id }}">{{ item.title }}</a>
+					</td>
+					<td>
+						{% for authors in item.authors.all %}
+							{{ authors.first_name }}&nbsp;{{ authors.last_name }}
+							<br />
+						{% endfor %}
+					</td>
+					<td>{{ item.publisher }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>

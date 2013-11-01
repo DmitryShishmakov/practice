@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Библиотека</title>
+		<style type="text/css">
+			h1 {
+				padding: 20px;
+				text-align: center;
+			}
+
+			table {
+				width: 100%;
+				border-collapse: collapse;
+			}
+
+			table th {
+				width: 200px;
+			}
+
+			table, th, table td {
+				padding: 5px 0;
+				border: 1px solid #cccccc;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>Название:</th>
+				<td>{{ book.title }}</td>
+			</tr>
+			<tr>
+				<th>Автор(-ы):</th>
+				<td>
+					{% for authors in book.authors.all %}
+						<a href="/library/authors/{{ authors.id }}">{{ authors.first_name }}&nbsp;{{ authors.last_name }}</a>
+						<br />
+					{% endfor %}
+				</td>
+			</tr>
+			<tr>
+				<th>Издательство:</th>
+				<td>{{ book.publisher }}</td>
+			</tr>
+			<tr>
+				<th>Дата добавления:</th>
+				<td>{{ book.publication_date }}</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Библиотека</title>
+		<style type="text/css">
+			h1 {
+				padding: 20px;
+				text-align: center;
+			}
+
+			table {
+				width: 100%;
+				border-collapse: collapse;
+			}
+
+			table th {
+				width: 200px;
+			}
+
+			table, th, table td {
+				padding: 5px 0;
+				border: 1px solid #cccccc;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>Имя:</th>
+				<td>{{ author.first_name }}</td>
+			</tr>
+			<tr>
+				<th>Фамилия:</th>
+				<td>{{ author.last_name }}</td>
+			</tr>
+			{% if author.email %}
+				<tr>
+					<th>Email:</th>
+					<td>{{ author.email }}</td>
+				</tr>
+			{% endif %}
+		</table>
+	</body>
+</html>
